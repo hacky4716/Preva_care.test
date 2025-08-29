@@ -1,0 +1,41 @@
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;       /* centers vertically */
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+
+  max-width: 1000px;   /* ✅ shrink container so content isn’t spread out */
+  width: 90%;          /* ✅ allow responsiveness */
+  padding: 2rem;
+
+  background: #fff;    /* optional for testing layout */
+  border-radius: 12px; /* optional nice look */
+}
+
+.left, .right {
+  flex: 1;
+}
+
+.center img {
+  max-width: 400px;    /* ✅ balanced size */
+  height: auto;
+  display: block;
+  margin: 0 auto;      /* ✅ ensures image is centered */
+}

@@ -1,0 +1,178 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+
+  /* overflow-y: hidden; */
+}
+
+.container {
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: stretch;       /* centers vertically */
+  width: 100%;
+   height: 100vh;                  /* full screen */
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;  /* keeps content from stretching too wide */
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+
+  margin: 0;     /* no centering margins */
+  border-radius: 0; /* optional, so it touches edges */
+  box-shadow: none; 
+}
+
+.section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden; /* locks only inside the section */
+}
+
+.feature-title {
+  color: #007bff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.feature-showcase {
+  position: sticky;
+  top: 0;
+
+  /* make the section as tall as the viewport */
+  min-height: 100vh;       /* <-- this is the key */
+  width: 100%;
+
+  /* center the three columns vertically */
+  display: flex;
+  align-items: center;      /* vertical centering */
+  justify-content: space-between;
+
+  /* layout polish */
+  padding: 40px;            /* keep if you like */
+  box-sizing: border-box;   /* so padding doesn’t shrink the height */
+  background: #fff;         /* hide the dark body behind it */
+  
+}
+
+.left {
+  flex: 1;
+  position: relative;
+  color: #666;
+}
+.left h3 {
+    color: #000;
+}
+
+.left-arrows {
+  position: absolute;
+  bottom: 11rem; /* stick to bottom */
+  left: 2rem;   /* align left */
+  display: flex;
+  gap: 0.5rem;
+}
+
+.left-arrows .separator {
+  color: blue;        /* make it blue */
+  font-weight: bold;  /* thicker */
+  margin: 0 0.25rem;  
+  size: 80px;/* spacing so it doesn't stick to arrows */
+}
+
+/* .left, */
+.center,
+.right {
+  color: #000;
+  flex: 1.2;          /* each section takes equal space */
+  min-width: 250px; /* prevents collapsing too small */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.iphone {
+  position: relative;
+  display: inline-block;
+  width: 450px;   /* 🔹 increase this for bigger iPhone */
+  /* height: auto;   keeps aspect ratio */
+}
+
+.iphone img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.right ul {
+    padding-left: 150px;
+    list-style: none;
+}
+
+.right ul li {
+  margin: 30px 0;
+  padding-left: 10px; /* space for border */
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s, border-left 0.3s;
+  border-left: 6px solid transparent;
+
+  white-space: nowrap;      /* 🚫 prevents wrapping */
+  /* overflow: hidden;         hide overflow if it’s too long */
+  /* text-overflow: ellipsis;  … adds "..." if it overflows */
+}
+
+.right ul li.active {
+  color: #4c4b4b;
+  font-weight: 700;
+  border-left: 3px solid #007bff;
+}
+
+
+
+.left-arrows button {
+  color: #000;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.right h2 {
+    font-weight: 600;
+    margin-left: 80px;
+    margin-bottom: 60px;
+}
+
+/* Mobile Responsive */
+/* Example if you’re not using Tailwind */
+@media (max-width: 768px) {
+  .feature-container {
+    flex-direction: column;  /* stack vertically instead of side-by-side */
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .feature-title {
+    font-size: 1.25rem;  /* smaller headline */
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .nav-button {
+    padding: 0.75rem 1.25rem; /* bigger tap target */
+    font-size: 1rem;
+  }
+}
+
+
+
