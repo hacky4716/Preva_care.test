@@ -188,7 +188,7 @@ export default function FeatureShowcase() {
 
 
     return (
-        <div className="container relative min-h-[500vh]">
+        <div className="container relative">
             <div className="content sticky top-0 h-auto sm:h-screen flex flex-col sm:flex-row justify-center sm:items-center">
                 <div className="feature-showcase feature-showcase flex flex-col sm:flex-row w-full">
                     {/* Left */}
