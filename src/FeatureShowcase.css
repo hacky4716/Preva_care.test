@@ -146,7 +146,7 @@ body, html {
 
 /* Mobile Responsive */
 /* Example if you’re not using Tailwind */
-@media (max-width: 768px) {
+@media (min-width: 640px) {
   .feature-container {
     flex-direction: column;  /* stack vertically instead of side-by-side */
     padding: 1rem;
