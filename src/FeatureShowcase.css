@@ -149,44 +149,30 @@ html {
 
 @media (max-width: 640px) {
   .feature-showcase {
-    flex-direction: row;       /* keep horizontal layout */
+    flex-direction: row;      /* keep horizontal */
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    overflow-x: auto;          /* allow scrolling if needed */
-    padding: 5px;
-    gap: 5px;
+    overflow-x: auto;         /* horizontal scroll if needed */
+    padding: 10px;
+    gap: 10px;
   }
 
   .left, .center, .right {
-    flex: 0 0 auto;            /* keep widths fixed */
+    flex: 0 0 auto;           /* sections keep their width */
+    min-width: 140px;         /* ensures left fully visible */
   }
 
   .left {
-    width: 120px;              /* shrink left section */
-    font-size: 12px;           /* smaller text */
-  }
-
-  .left h2, .left h3 {
-    font-size: 12px;
-    line-height: 1.2;
-    margin: 2px 0;
-  }
-
-  .left ul {
-    font-size: 11px;
-    margin-top: 2px;
-    padding-left: 10px;
-  }
-
-  .left-arrows {
-    gap: 3px;
-    margin-top: 4px;
-    bottom: 0;
+    width: 140px;             /* fixed width for left */
   }
 
   .center {
-    width: 120px;              /* shrink image */
+    width: 160px;             /* shrink center image */
+  }
+
+  .right {
+    width: 140px;
   }
 
   .iphone {
@@ -194,9 +180,9 @@ html {
     height: auto;
   }
 
-  .right {
-    width: 120px;              /* shrink right section */
-    font-size: 12px;
+  .left-arrows {
+    position: relative;
+    bottom: 0;
   }
 
   .right ul {
