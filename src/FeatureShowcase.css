@@ -146,3 +146,50 @@ html {
         line-height: 1.5;
     }
 }
+
+/* Mobile: keep horizontal layout, shrink sections proportionally */
+@media (max-width: 640px) {
+    .feature-showcase {
+        flex-direction: row;
+        /* keep left-center-right in a row */
+        justify-content: flex-start;
+        align-items: flex-start;
+        /* don’t vertically center */
+        min-width: 600px;
+        /* allow horizontal scroll if screen is too narrow */
+        padding: 10px;
+        overflow-x: auto;
+        /* horizontal scroll if necessary */
+    }
+
+    .left,
+    .center,
+    .right {
+        flex: 0 0 auto;
+        /* prevent shrinking below min-width */
+        min-width: 150px;
+        /* ensure each section is visible */
+        margin-right: 10px;
+        /* spacing between sections */
+    }
+
+    .iphone {
+        width: 100%;
+        max-width: 150px;
+        /* shrink phone image on small screens */
+        height: auto;
+    }
+
+    .left-arrows {
+        position: relative;
+        bottom: 0;
+        justify-content: flex-start;
+    }
+
+    .right ul {
+        padding-left: 10px;
+        /* reduce padding for small screens */
+    }
+
+    /* Optional: hide some non-critical text or icons if needed */
+}
