@@ -73,8 +73,8 @@ body, html {
 
 .left-arrows {
   position: absolute;
-  bottom: 11rem; /* stick to bottom */
-  left: 2rem;   /* align left */
+  bottom: -2rem; /* stick to bottom */
+  left: 0rem;   /* align left */
   display: flex;
   gap: 0.5rem;
 }
@@ -145,7 +145,7 @@ body, html {
 
 .right h2 {
     font-weight: 600;
-    margin-left: 80px;
+    margin-left: 90px;
     margin-bottom: 60px;
 }
 

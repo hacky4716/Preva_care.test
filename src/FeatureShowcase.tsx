@@ -197,29 +197,28 @@ useEffect(() => {
                     onTouchStart={pauseBriefly}
                 >
                     {/* Left */}
-                    <div className="left">
+                    <div className="left w-full sm:w-1/4">
                         <h2 className="feature-title">{features[active].feature}-</h2>
                         <h3>{features[active].heading}</h3>
                         <ul>{features[active].description.map((d, i) => <li key={i}>{d}</li>)}</ul>
-                    </div>
-
-                    <div className="left-arrows flex justify-center sm:justify-start gap-4 mt-6">
+                        <div className="left-arrows flex justify-center sm:justify-start gap-4 mt-6">
                         <button className="p-4 sm:p-3 rounded-full bg-gray-200" onClick={prev} aria-label="Previous feature">←</button>
                         <span className="separator">|</span>
                         <button className="p-4 sm:p-3 rounded-full bg-gray-200" onClick={next} aria-label="Next feature">→</button>
+                    </div>
                     </div>
 
                     {/* Center */}
                     <div className="center w-full sm:w-1/2 flex justify-center">
                         <img
-                            className="iphone max-h-full object-contain w-[250px] sm:w-[350px] h-auto"
+                            className="iphone w-full max-w-[250px] sm:max-w-[350px]"
                             src={features[active].image}
                             alt={features[active].heading}
                         />
                     </div>
 
                     {/* Right */}
-                    <div className="right w-full sm:w-1/2 text-center sm:text-left space-y-4">
+                    <div className="right w-full sm:w-1/4 text-center sm:text-left">
                         <h2>Feature Showcase</h2>
                         <ul>
                             {features.map((f, idx) => (
