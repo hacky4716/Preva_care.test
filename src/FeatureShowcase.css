@@ -149,47 +149,44 @@ html {
 
 /* Mobile: keep horizontal layout, shrink sections proportionally */
 @media (max-width: 640px) {
-    .feature-showcase {
-        flex-direction: row;
-        /* keep left-center-right in a row */
-        justify-content: flex-start;
-        align-items: flex-start;
-        /* don’t vertically center */
-        min-width: 600px;
-        /* allow horizontal scroll if screen is too narrow */
-        padding: 10px;
-        overflow-x: auto;
-        /* horizontal scroll if necessary */
-    }
+  .feature-showcase {
+    flex-direction: row;        /* keep horizontal */
+    justify-content: flex-start; 
+    align-items: flex-start;    
+    width: 100%;
+    overflow-x: auto;           /* horizontal scroll if too wide */
+    padding: 10px;
+    min-width: auto;            /* remove previous min-width */
+  }
 
-    .left,
-    .center,
-    .right {
-        flex: 0 0 auto;
-        /* prevent shrinking below min-width */
-        min-width: 150px;
-        /* ensure each section is visible */
-        margin-right: 10px;
-        /* spacing between sections */
-    }
+  .left {
+    flex: 0 0 30%;              /* left takes 30% of container width */
+    min-width: 120px;           /* ensures full visibility */
+    margin-right: 5px;
+  }
 
-    .iphone {
-        width: 100%;
-        max-width: 150px;
-        /* shrink phone image on small screens */
-        height: auto;
-    }
+  .center {
+    flex: 0 0 40%;              /* center section slightly bigger */
+    min-width: 120px;
+    margin-right: 5px;
+  }
 
-    .left-arrows {
-        position: relative;
-        bottom: 0;
-        justify-content: flex-start;
-    }
+  .right {
+    flex: 0 0 30%;              /* right takes remaining space */
+    min-width: 120px;
+  }
 
-    .right ul {
-        padding-left: 10px;
-        /* reduce padding for small screens */
-    }
+  .iphone {
+    max-width: 100%;            /* shrink image to fit center */
+    height: auto;
+  }
 
-    /* Optional: hide some non-critical text or icons if needed */
+  .left-arrows {
+    position: relative;
+    bottom: 0;
+  }
+
+  .right ul {
+    padding-left: 10px;
+  }
 }
