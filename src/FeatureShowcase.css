@@ -1,191 +1,236 @@
 body,
 html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    width: 100%;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  height: 100vh;
 }
 
 .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    max-width: 1200px;
-    width: 100%;
-    height: 100%;
-    padding: 2rem;
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .feature-showcase {
-    position: sticky;
-    top: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px;
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
 }
 
 .feature-title {
-    color: #007bff;
-    font-family: Arial, Helvetica, sans-serif;
+  color: #007bff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .left {
-    flex: 1;
-    position: relative;
-    color: #666;
+  flex: 1;
+  position: relative;
+  color: #666;
 }
 
 .left h3 {
-    color: #000;
+  color: #000;
 }
 
 .left-arrows {
-    position: relative;
-    bottom: -2rem;
-    left: 0rem;
-    display: flex;
-    gap: 0.5rem;
+  position: relative;
+  bottom: -2rem;
+  left: 0rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .left-arrows .separator {
-    color: blue;
-    font-weight: bold;
-    margin: 0 0.25rem;
-    size: 80px;
+  color: blue;
+  font-weight: bold;
+  margin: 0 0.25rem;
+  size: 80px;
 }
 
 .left-arrows button {
-    color: #000;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+  color: #000;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .iphone {
-    position: relative;
-    display: inline-block;
-    width: 450px;
+  position: relative;
+  display: inline-block;
+  width: 450px;
 }
 
 .iphone img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .center,
 .right {
-    color: #000;
-    flex: 1.2;
-    min-width: 250px;
-    padding: 20px;
-    box-sizing: border-box;
+  color: #000;
+  flex: 1.2;
+  min-width: 250px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .left,
 .right.center {
-    min-width: 250px;
+  min-width: 250px;
 }
 
 .right h2 {
-    font-weight: 600;
-    margin-left: 90px;
-    margin-bottom: 60px;
+  font-weight: 600;
+  margin-left: 90px;
+  margin-bottom: 60px;
 }
 
 .right ul {
-    padding-left: 150px;
-    list-style: none;
+  padding-left: 150px;
+  list-style: none;
 }
 
 .right ul li {
-    margin: 30px 0;
-    padding-left: 10px;
-    cursor: pointer;
-    color: #666;
-    transition: color 0.3s, border-left 0.3s;
-    border-left: 6px solid transparent;
-    white-space: nowrap;
+  margin: 30px 0;
+  padding-left: 10px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s, border-left 0.3s;
+  border-left: 6px solid transparent;
+  white-space: nowrap;
 }
 
 .right ul li.active {
-    color: #4c4b4b;
-    font-weight: 700;
-    border-left: 3px solid #007bff;
+  color: #4c4b4b;
+  font-weight: 700;
+  border-left: 3px solid #007bff;
 }
 
 @media (min-width: 640px) {
-    .feature-container {
-        flex-direction: column;
-        padding: 1rem;
-        text-align: center;
-    }
+  .feature-container {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+  }
 
-    .feature-title {
-        font-size: 1.25rem;
-        margin-bottom: 0.75rem;
-    }
+  .feature-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
 
-    .feature-description {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
+  .feature-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 640px) {
-  .feature-showcase {
-    flex-direction: row;      /* keep horizontal */
-    justify-content: flex-start;
+  /* Container/content use full width without forcing viewport-height issues on mobile */
+  .container {
     align-items: flex-start;
-    width: 100%;
-    overflow-x: auto;         /* horizontal scroll if needed */
-    padding: 10px;
-    gap: 10px;
+    min-height: 100dvh;
   }
 
-  .left, .center, .right {
-    flex: 0 0 auto;           /* sections keep their width */
-    min-width: 140px;         /* ensures left fully visible */
+  .content {
+    padding: 16px;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Remove sticky + horizontal scrolling on small screens; stack vertically */
+  .feature-showcase {
+    position: static;
+    top: auto;
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 16px 8px;
+    gap: 16px;
+    overflow: visible;
+  }
+
+  /* Make all sections full width and reset min-width constraints */
+  .left,
+  .center,
+  .right {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
   }
 
   .left {
-    width: 140px;             /* fixed width for left */
+    margin-top: 8px;
   }
 
-  .center {
-    width: 160px;             /* shrink center image */
-  }
-
-  .right {
-    width: 140px;
-  }
-
-  .iphone {
-    max-width: 100%;
-    height: auto;
+  .left h3,
+  .feature-title {
+    margin: 0 0 8px 0;
   }
 
   .left-arrows {
-    position: relative;
-    bottom: 0;
+    position: static;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* Scale the center image safely */
+  .iphone {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .iphone img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Right section: remove large left paddings/margins and allow wrapping */
+  .right h2 {
+    margin-left: 0;
+    margin-bottom: 16px;
   }
 
   .right ul {
-    padding-left: 5px;
+    padding-left: 0;
+  }
+
+  .right ul li {
+    margin: 12px 0;
+    padding-left: 0;
+    border-left: none;
+    white-space: normal; /* allow wrapping on mobile */
   }
 }
