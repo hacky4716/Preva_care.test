@@ -190,6 +190,7 @@ useEffect(() => {
     return (
   <div className="container relative min-h-[500vh]">
     <div className="content sticky top-0 h-auto sm:h-screen flex flex-col sm:flex-row justify-center sm:items-center">
+        <div className="feature-showcase feature-showcase flex flex-col sm:flex-row w-full">
       {/* Left */}
       <div className="left w-full sm:w-1/4 flex flex-col mt-6 sm:mt-0">
         <h2 className="feature-title">{features[active].feature}-</h2>
@@ -244,6 +245,7 @@ useEffect(() => {
         </ul>
       </div>
     </div>
+  </div>
   </div>
 );
 }
