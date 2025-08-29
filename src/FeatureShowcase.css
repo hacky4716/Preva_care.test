@@ -49,8 +49,13 @@ html {
   color: #666;
 }
 
+.left h2 {
+    margin-bottom: 50px;
+} 
+
 .left h3 {
   color: #000;
+  margin-bottom: 30px;
 }
 
 .left-arrows {
