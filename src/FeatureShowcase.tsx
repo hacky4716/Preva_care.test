@@ -188,53 +188,62 @@ useEffect(() => {
 
 
     return (
-        <div className="container relative h-[500vh]">
-            <div className="content sticky top-0 h-screen flex items-center justify-center">
-                <section
-                    ref={sectionRef}
-                    className="feature-showcase flex flex-col sm:flex-row items-center justify-between w-full h-full p-6 sm:p-12 gap-6"
-                    onMouseEnter={pauseBriefly}
-                    onTouchStart={pauseBriefly}
-                >
-                    {/* Left */}
-                    <div className="left w-full sm:w-1/4">
-                        <h2 className="feature-title">{features[active].feature}-</h2>
-                        <h3>{features[active].heading}</h3>
-                        <ul>{features[active].description.map((d, i) => <li key={i}>{d}</li>)}</ul>
-                        <div className="left-arrows flex justify-center sm:justify-start gap-4 mt-6">
-                        <button className="p-4 sm:p-3 rounded-full bg-gray-200" onClick={prev} aria-label="Previous feature">←</button>
-                        <span className="separator">|</span>
-                        <button className="p-4 sm:p-3 rounded-full bg-gray-200" onClick={next} aria-label="Next feature">→</button>
-                    </div>
-                    </div>
+  <div className="container relative min-h-[500vh]">
+    <div className="content sticky top-0 h-screen flex flex-col sm:flex-row justify-center sm:items-center p-6 sm:p-12 gap-6">
+      {/* Left */}
+      <div className="left w-full sm:w-1/4 flex flex-col">
+        <h2 className="feature-title">{features[active].feature}-</h2>
+        <h3>{features[active].heading}</h3>
+        <ul className="mt-4 space-y-2">
+          {features[active].description.map((d, i) => (
+            <li key={i}>{d}</li>
+          ))}
+        </ul>
 
-                    {/* Center */}
-                    <div className="center w-full sm:w-1/2 flex justify-center">
-                        <img
-                            className="iphone w-full max-w-[250px] sm:max-w-[350px]"
-                            src={features[active].image}
-                            alt={features[active].heading}
-                        />
-                    </div>
-
-                    {/* Right */}
-                    <div className="right w-full sm:w-1/4 text-center sm:text-left">
-                        <h2>Feature Showcase</h2>
-                        <ul>
-                            {features.map((f, idx) => (
-                                <li
-                                    key={f.id}
-                                    className={`cursor-pointer ${idx === active ? "active font-bold" : ""}`}
-                                    onClick={() => goto(idx)}
-                                >
-                                    Feature {f.id} : {f.title}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                </section>
-            </div>
+        <div className="left-arrows flex justify-center sm:justify-start gap-4 mt-6">
+          <button
+            className="p-4 sm:p-3 rounded-full bg-gray-200"
+            onClick={prev}
+            aria-label="Previous feature"
+          >
+            ←
+          </button>
+          <span className="separator">|</span>
+          <button
+            className="p-4 sm:p-3 rounded-full bg-gray-200"
+            onClick={next}
+            aria-label="Next feature"
+          >
+            →
+          </button>
         </div>
-    );
+      </div>
+
+      {/* Center */}
+      <div className="center w-full sm:w-1/2 flex justify-center my-6 sm:my-0">
+        <img
+          className="iphone w-full max-w-[250px] sm:max-w-[350px] object-contain h-auto"
+          src={features[active].image}
+          alt={features[active].heading}
+        />
+      </div>
+
+      {/* Right */}
+      <div className="right w-full sm:w-1/4 text-center sm:text-left mt-6 sm:mt-0">
+        <h2 className="mb-4">Feature Showcase</h2>
+        <ul className="space-y-2">
+          {features.map((f, idx) => (
+            <li
+              key={f.id}
+              className={`cursor-pointer ${idx === active ? "active font-bold" : ""}`}
+              onClick={() => goto(idx)}
+            >
+              Feature {f.id} : {f.title}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+);
 }
