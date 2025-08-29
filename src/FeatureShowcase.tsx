@@ -149,103 +149,103 @@ export default function FeatureShowcase() {
         }
     }, [inView]);
 
-// In your Features component
-useEffect(() => {
-  const handleWheel = (e: WheelEvent) => {
-    if (active < features.length - 1) {
-      e.preventDefault();
-      if (e.deltaY > 0) {
-        setActive((prev) => Math.min(prev + 1, features.length - 1));
-      } else {
-        setActive((prev) => Math.max(prev - 1, 0));
-      }
-    }
-  };
+    // In your Features component
+    useEffect(() => {
+        const handleWheel = (e: WheelEvent) => {
+            if (active < features.length - 1) {
+                e.preventDefault();
+                if (e.deltaY > 0) {
+                    setActive((prev) => Math.min(prev + 1, features.length - 1));
+                } else {
+                    setActive((prev) => Math.max(prev - 1, 0));
+                }
+            }
+        };
 
-  window.addEventListener("wheel", handleWheel, { passive: false });
-  return () => window.removeEventListener("wheel", handleWheel);
-}, [active, features.length]);
+        window.addEventListener("wheel", handleWheel, { passive: false });
+        return () => window.removeEventListener("wheel", handleWheel);
+    }, [active, features.length]);
 
-useEffect(() => {
-  let startY = 0;
-  const onTouchStart = (e: TouchEvent) => (startY = e.touches[0].clientY);
-  const onTouchEnd = (e: TouchEvent) => {
-    const deltaY = e.changedTouches[0].clientY - startY;
-    if (Math.abs(deltaY) > 50) {
-      if (deltaY < 0 && active < features.length - 1)
-        setActive((a) => a + 1); // swipe up → next
-      else if (deltaY > 0 && active > 0)
-        setActive((a) => a - 1); // swipe down → prev
-    }
-  };
-  window.addEventListener("touchstart", onTouchStart);
-  window.addEventListener("touchend", onTouchEnd);
-  return () => {
-    window.removeEventListener("touchstart", onTouchStart);
-    window.removeEventListener("touchend", onTouchEnd);
-  };
-}, [active]);
+    useEffect(() => {
+        let startY = 0;
+        const onTouchStart = (e: TouchEvent) => (startY = e.touches[0].clientY);
+        const onTouchEnd = (e: TouchEvent) => {
+            const deltaY = e.changedTouches[0].clientY - startY;
+            if (Math.abs(deltaY) > 50) {
+                if (deltaY < 0 && active < features.length - 1)
+                    setActive((a) => a + 1);
+                else if (deltaY > 0 && active > 0)
+                    setActive((a) => a - 1);
+            }
+        };
+        window.addEventListener("touchstart", onTouchStart);
+        window.addEventListener("touchend", onTouchEnd);
+        return () => {
+            window.removeEventListener("touchstart", onTouchStart);
+            window.removeEventListener("touchend", onTouchEnd);
+        };
+    }, [active]);
 
 
     return (
-  <div className="container relative min-h-[500vh]">
-    <div className="content sticky top-0 h-auto sm:h-screen flex flex-col sm:flex-row justify-center sm:items-center">
-        <div className="feature-showcase feature-showcase flex flex-col sm:flex-row w-full">
-      {/* Left */}
-      <div className="left w-full sm:w-1/4 flex flex-col mt-6 sm:mt-0">
-        <h2 className="feature-title">{features[active].feature}-</h2>
-        <h3>{features[active].heading}</h3>
-        <ul className="mt-4 space-y-2">
-          {features[active].description.map((d, i) => (
-            <li key={i}>{d}</li>
-          ))}
-        </ul>
+        <div className="container relative min-h-[500vh]">
+            <div className="content sticky top-0 h-auto sm:h-screen flex flex-col sm:flex-row justify-center sm:items-center">
+                <div className="feature-showcase feature-showcase flex flex-col sm:flex-row w-full">
+                    {/* Left */}
+                    <div className="left w-full sm:w-1/4 flex flex-col mt-6 sm:mt-0">
+                        <h2 className="feature-title">{features[active].feature}-</h2>
+                        <h3>{features[active].heading}</h3>
+                        <ul className="mt-4 space-y-2">
+                            {features[active].description.map((d, i) => (
+                                <li key={i}>{d}</li>
+                            ))}
+                        </ul>
 
-        <div className="left-arrows flex justify-center sm:justify-start gap-4 mt-6">
-          <button
-            className="p-4 sm:p-3 rounded-full bg-gray-200"
-            onClick={prev}
-            aria-label="Previous feature"
-          >
-            ←
-          </button>
-          <span className="separator">|</span>
-          <button
-            className="p-4 sm:p-3 rounded-full bg-gray-200"
-            onClick={next}
-            aria-label="Next feature"
-          >
-            →
-          </button>
+                        <div className="left-arrows flex justify-center sm:justify-start gap-4 mt-6">
+                            <button
+                                className="p-4 sm:p-3 rounded-full bg-gray-200"
+                                onClick={prev}
+                                aria-label="Previous feature"
+                            >
+                                ←
+                            </button>
+                            <span className="separator">|</span>
+                            <button
+                                className="p-4 sm:p-3 rounded-full bg-gray-200"
+                                onClick={next}
+                                aria-label="Next feature"
+                            >
+                                →
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Center */}
+                    <div className="center w-full sm:w-1/2 flex justify-center my-6 sm:my-0">
+                        <img
+                            className="iphone w-full max-w-[250px] sm:max-w-[350px] object-contain h-auto"
+                            src={features[active].image}
+                            alt={features[active].heading}
+                        />
+                    </div>
+
+                    {/* Right */}
+                    <div className="right w-full sm:w-1/4 text-center sm:text-left mt-6 sm:mt-0">
+                        <h2 className="mb-4">Feature Showcase</h2>
+                        <ul className="space-y-2">
+                            {features.map((f, idx) => (
+                                <li
+                                    key={f.id}
+                                    className={`cursor-pointer ${idx === active ? "active font-bold" : ""}`}
+                                    onClick={() => goto(idx)}
+                                >
+                                    Feature {f.id} : {f.title}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      {/* Center */}
-      <div className="center w-full sm:w-1/2 flex justify-center my-6 sm:my-0">
-        <img
-          className="iphone w-full max-w-[250px] sm:max-w-[350px] object-contain h-auto"
-          src={features[active].image}
-          alt={features[active].heading}
-        />
-      </div>
-
-      {/* Right */}
-      <div className="right w-full sm:w-1/4 text-center sm:text-left mt-6 sm:mt-0">
-        <h2 className="mb-4">Feature Showcase</h2>
-        <ul className="space-y-2">
-          {features.map((f, idx) => (
-            <li
-              key={f.id}
-              className={`cursor-pointer ${idx === active ? "active font-bold" : ""}`}
-              onClick={() => goto(idx)}
-            >
-              Feature {f.id} : {f.title}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </div>
-  </div>
-);
+    );
 }
