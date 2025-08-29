@@ -147,37 +147,36 @@ html {
     }
 }
 
-/* Mobile: keep horizontal layout, shrink sections proportionally */
 @media (max-width: 640px) {
   .feature-showcase {
-    flex-direction: row;        /* keep horizontal */
-    justify-content: flex-start; 
-    align-items: flex-start;    
+    flex-direction: row;      /* keep horizontal */
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
-    overflow-x: auto;           /* horizontal scroll if too wide */
+    overflow-x: auto;         /* horizontal scroll if needed */
     padding: 10px;
-    min-width: auto;            /* remove previous min-width */
+    gap: 10px;
+  }
+
+  .left, .center, .right {
+    flex: 0 0 auto;           /* sections keep their width */
+    min-width: 140px;         /* ensures left fully visible */
   }
 
   .left {
-    flex: 0 0 30%;              /* left takes 30% of container width */
-    min-width: 120px;           /* ensures full visibility */
-    margin-right: 5px;
+    width: 140px;             /* fixed width for left */
   }
 
   .center {
-    flex: 0 0 40%;              /* center section slightly bigger */
-    min-width: 120px;
-    margin-right: 5px;
+    width: 160px;             /* shrink center image */
   }
 
   .right {
-    flex: 0 0 30%;              /* right takes remaining space */
-    min-width: 120px;
+    width: 140px;
   }
 
   .iphone {
-    max-width: 100%;            /* shrink image to fit center */
+    max-width: 100%;
     height: auto;
   }
 
@@ -187,6 +186,6 @@ html {
   }
 
   .right ul {
-    padding-left: 10px;
+    padding-left: 5px;
   }
 }
