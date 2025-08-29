@@ -45,22 +45,13 @@ body, html {
 .feature-showcase {
   position: sticky;
   top: 0;
-
-  /* make the section as tall as the viewport */
-  min-height: 100vh;       /* <-- this is the key */
-  width: 100%;
-
-  /* center the three columns vertically */
+  min-height: 100vh;
   display: flex;
-  align-items: center;      /* vertical centering */
+  align-items: center; /* vertical centering */
   justify-content: space-between;
-
-  /* layout polish */
-  padding: 40px;            /* keep if you like */
-  box-sizing: border-box;   /* so padding doesn’t shrink the height */
-  background: #fff;         /* hide the dark body behind it */
-  
+  padding: 40px;
 }
+
 
 .left {
   flex: 1;
@@ -72,7 +63,7 @@ body, html {
 }
 
 .left-arrows {
-  position: absolute;
+  position: relative;
   bottom: -2rem; /* stick to bottom */
   left: 0rem;   /* align left */
   display: flex;
@@ -94,6 +85,10 @@ body, html {
   min-width: 250px; /* prevents collapsing too small */
   padding: 20px;
   box-sizing: border-box;
+}
+
+.left,.right.center {
+    min-width: 250px;
 }
 
 .iphone {
@@ -174,5 +169,14 @@ body, html {
   }
 }
 
+@media (max-width: 640px) {
+  .feature-showcase {
+    flex-direction: column; /* stack sections vertically */
+    align-items: flex-start; /* start from top */
+    padding: 1rem;
+  }
 
-
+  .left, .center, .right {
+    width: 100%;
+  }
+}
